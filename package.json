@@ -1,0 +1,10 @@
+{
+  "name": "olympus",
+  "version": "0.0.1",
+  "description": "A Boilerplate to levo products",
+  "main": "index.js",
+  "repository": "git@github.com:levo-app/olympus.git",
+  "author": "Willian Sugiyama <williansugiyama@gmail.com>",
+  "license": "MIT",
+  "private": true
+}
