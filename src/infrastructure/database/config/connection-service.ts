@@ -4,9 +4,10 @@ import { DataSource, Repository } from 'typeorm';
 import { createLogger } from '../../logger';
 import { Settings } from '../../../infrastructure/configurations/settings';
 import { join } from 'path';
+import { IConnectionService } from './interfaces/connection-service-interface';
 
 @injectable()
-export class ConnectionService {
+export class ConnectionService implements IConnectionService {
   private dataSource: DataSource;
   private isConnected: boolean;
   private logger = createLogger('TypeORM');
@@ -44,13 +45,13 @@ export class ConnectionService {
     }
   }
 
-  public async closeConnection() {
+  public async closeConnection(): Promise<void> {
     if (this.isConnected) {
       return await this.dataSource.destroy();
     }
   }
 
-  private async connect() {
+  private async connect(): Promise<boolean> {
     if (!this.isConnected) {
       try {
         await this.dataSource.initialize();

@@ -1,7 +1,7 @@
 export const Container: symbol = Symbol.for('Container');
 export const Envs: symbol = Symbol.for('Envs');
 export const Mediator: symbol = Symbol.for('Mediator');
-export const ConnectionService: symbol = Symbol.for('ConnectionService');
+export const IConnectionService: symbol = Symbol.for('IConnectionService');
 export const HealthcheckCommandHandler: symbol = Symbol.for('HealthcheckCommandHandler');
 export const FindTestByIdCommandHandler: symbol = Symbol.for('FindTestByIdCommandHandler');
 export const CreateTestCommandHandler: symbol = Symbol.for('CreateTestCommandHandler');

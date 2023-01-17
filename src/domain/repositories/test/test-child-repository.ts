@@ -1,4 +1,3 @@
-import { ConnectionService } from '../../../infrastructure/database/config/connection-service';
 import { inject, injectable } from 'inversify';
 import { Result } from '../../../application/contracts/result/result';
 import { ResultError } from '../../../application/contracts/result/result-error';
@@ -8,11 +7,13 @@ import { TestChildEntity } from '../../entities/test/test-child-entity';
 import { TestChildDTO } from '../../dtos/test/test-child-dto';
 import { TestEntity } from '../../entities/test/test-entity';
 
+import * as Types from '../../../infrastructure/configurations/types';
+import { IConnectionService } from '../../../infrastructure/database/config/interfaces/connection-service-interface';
 @injectable()
 export class TestChildRepository {
   constructor(
-    @inject(ConnectionService)
-    private readonly connectionService: ConnectionService
+    @inject(Types.IConnectionService)
+    private readonly connectionService: IConnectionService
   ) {}
 
   private repository = this.connectionService.getRepo<TestChildEntity>(TestChildEntity);

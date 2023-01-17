@@ -16,9 +16,7 @@ export class initialMigration1673891970495 implements MigrationInterface {
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.query(
-      `ALTER TABLE "test_entity" DROP CONSTRAINT "FK_ff4f1fc86067d93166f8a9f40bd"`
-    );
+    await queryRunner.query(`ALTER TABLE "test_entity" DROP CONSTRAINT "FK_ff4f1fc86067d93166f8a9f40bd"`);
     await queryRunner.query(`DROP TABLE "test_child_entity"`);
     await queryRunner.query(`DROP TABLE "test_entity"`);
   }

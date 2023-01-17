@@ -19,6 +19,7 @@ import { TestController } from '../../interface/api/controllers/test-controller'
 import { TestRepository } from '../../domain/repositories/test/test-repository';
 import { TestChildRepository } from '../../domain/repositories/test/test-child-repository';
 import { TestChildController } from '../../interface/api/controllers/test-child-controller';
+import { IConnectionService } from '../database/config/interfaces/connection-service-interface';
 
 const container: Container = new Container();
 
@@ -40,7 +41,7 @@ container.bind(TestChildController).toSelf();
 
 // settings
 container.bind(Settings).toSelf();
-container.bind(ConnectionService).toSelf();
+container.bind<IConnectionService>(Types.IConnectionService).to(ConnectionService);
 
 // values
 container.bind(Types.Container).toConstantValue(container);
