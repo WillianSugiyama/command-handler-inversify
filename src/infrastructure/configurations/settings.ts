@@ -14,6 +14,30 @@ export class Settings {
     return this.isPropertyTrue('ISDEV');
   }
 
+  public getDBHost(): string {
+    return this.assertAndReturnSetting('DATABASE_HOST');
+  }
+
+  public getDBName(): string {
+    return this.assertAndReturnSetting('DATABASE_NAME');
+  }
+
+  public getDBPort(): number {
+    return this.assertAndReturnNumberSetting('DATABASE_PORT');
+  }
+
+  public getDBUsername(): string {
+    return this.assertAndReturnSetting('DATABASE_USER');
+  }
+
+  public getDBPassword(): string {
+    return this.assertAndReturnSetting('DATABASE_PASSWORD');
+  }
+
+  public getDBSchema(): string {
+    return this.assertAndReturnSetting('DATABASE_SCHEMA');
+  }
+
   private assertAndReturnNumberSetting(settingName: string): number {
     const rawSetting = this.returnSetting(settingName);
     const setting = castNullableNumber(rawSetting);

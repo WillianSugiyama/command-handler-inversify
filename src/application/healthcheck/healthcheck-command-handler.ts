@@ -6,11 +6,17 @@ import { ResultSuccess } from '../contracts/result/result-success';
 import { HealthcheckCommand } from './healthcheck-command';
 
 @injectable()
-export class HealthcheckCommandHandler implements CommandHandler<HealthcheckCommand, string> {
+export class HealthcheckCommandHandler
+  implements CommandHandler<HealthcheckCommand, string>
+{
   @inject(Settings)
   private readonly settings!: Settings;
 
   public async handle(request: HealthcheckCommand): Promise<Result<string>> {
-    return new ResultSuccess(`Ok, server running at port: ${this.settings.getPort()} + ${request.whoami}`);
+    return new ResultSuccess(
+      `Ok, server running at port: ${this.settings.getPort()} + ${
+        request.whoami
+      }`
+    );
   }
 }
