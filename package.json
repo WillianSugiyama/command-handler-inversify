@@ -15,7 +15,8 @@
     "migrate:generate": "ts-node ./generate-migrations.ts",
     "migrate:run": "./node_modules/.bin/ts-node ./node_modules/.bin/typeorm migration:run -d src/infrastructure/database/config/datasource.ts",
     "migrate:revert": "./node_modules/.bin/ts-node ./node_modules/.bin/typeorm migration:revert -d src/infrastructure/database/config/datasource.ts",
-    "build": "tsc"
+    "build": "tsc",
+    "prepare": "husky install"
   },
   "dependencies": {
     "class-transformer": "^0.5.1",
